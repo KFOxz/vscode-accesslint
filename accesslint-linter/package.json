@@ -1,0 +1,79 @@
+{
+  "name": "vscode-accesslint",
+  "displayName": "AccessLint Linter",
+  "description": "VS Code integration for AccessLint - An accessibility analysis tool.",
+  "icon": "accesslint.png",
+  "version": "0.1.0",
+  "publisher": "AccessLint",
+  "galleryBanner": {
+    "color": "#0000FF",
+    "theme": "dark"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AccessLint/vscode-accesslint/issues",
+    "email": "cameron@accesslint.com"
+  },
+  "homepage": "https://www.accesslint.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AccessLint/vscode-accesslint.git"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "engines": {
+    "vscode": "^1.16.0"
+  },
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:javascriptreact",
+    "onLanguage:vue-html"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "AccessLint Linter configuration",
+      "properties": {
+        "accesslint.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Control whether AccessLint is enabled for files or not."
+        },
+        "accesslint.documentSelector": {
+          "type": "array",
+          "default": [
+            "erb",
+            "htm",
+            "html",
+            "javascriptreact",
+            "liquid",
+            "vue-html"
+          ],
+          "description": "The associated document types to be linted."
+        },
+        "accesslint.options": {
+          "type": "object",
+          "default": {},
+          "description": "The options object to provide args to the accesslint command."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "node ./node_modules/typescript/bin/tsc -p ./",
+    "compile": "node ./node_modules/typescript/bin/tsc -p ./",
+    "watch": "node ./node_modules/typescript/bin/tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.2",
+    "vscode": "^1.1.5",
+    "@types/node": "^6.0.41"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^3.4.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "accesslint-linter-server",
+  "version": "0.1.0",
+  "description": "AccessLint Linter Server",
+  "engines": {
+    "node": "*"
+  },
+  "private": true,
+  "dependencies": {
+    "fs": "0.0.2",
+    "accesslint-core": "^0.2.1",
+    "strip-json-comments": "^2.0.0",
+    "vscode-languageserver": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.41",
+    "typescript": "^2.5.2"
+  },
+  "scripts": {
+    "compile": "installServerIntoExtension ../accesslint-linter ./package.json ./src/tsconfig.json && node node_modules/typescript/bin/tsc -p ./src",
+    "watch": "installServerIntoExtension ../accesslint-linter ./package.json ./src/tsconfig.json && node node_modules/typescript/bin/tsc --watch -p ./src"
+  }
+}
